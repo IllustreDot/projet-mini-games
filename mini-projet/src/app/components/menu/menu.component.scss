@@ -1,0 +1,25 @@
+.menu{
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: grey;
+    border-bottom: 1px solid black;
+}
+
+.player{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-pseudo{
+    margin-left: 10px;
+}
+
+.player-img{
+    margin-left: 20px;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+}
