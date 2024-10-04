@@ -1,0 +1,57 @@
+@import '../variables.scss';
+
+* {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: $background;
+    color: $text;
+    font-family: 'Julia';
+}
+
+#container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    #button-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+
+        div {
+            height: auto;
+
+            button {
+                all: unset;
+                height: 60px;
+                width: 200px;
+                margin-left: 50px;
+                text-align: center;
+                background-color: $border-highlight;
+                border-radius: 25px;
+                border: 2px $highlight solid;
+
+                &:hover {
+                    background-color: $highlight;
+                    border: 2px $border-highlight solid;
+                    color: $background;
+                    text-decoration: underline;
+                }
+            }
+
+            input {
+                all: unset;
+                background-color: $highlight;
+                height: 40px;
+                width: 280px;
+                color: $background;
+                padding: 10px;
+                border-radius: 25px;
+                border: 3px $border-highlight solid;
+            }
+        }
+    }
+}
