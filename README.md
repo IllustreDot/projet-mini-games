@@ -1,3 +1,5 @@
+Rendu par **EIRAS Cléo** et **VAN BRABANDT Jade**
+
 # Projet mini-games
 
 ## Consignes générales
