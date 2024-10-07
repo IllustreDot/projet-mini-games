@@ -44,3 +44,6 @@ Thumbs.db
 
 #Prettier
 mini-projet/.prettierrc
+
+#Vite
+mini-projet/.angular/*
