@@ -1,12 +1,6 @@
-<button (click)="showList">Burger</button>
-<ul class="menu">
-    <li class="active">
-        <a>Scoreboard</a>
-    </li>
-    <li class="active">
-        <a>Sudoku</a>
-    </li>
-    <li class="inactive">
-        <a>Autres</a>
-    </li>
-</ul>
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item routerLink="/scoreboard" routerLinkActive="active" ariaCurrentWhenActive="page">Scoreboard</a>
+  <a mat-menu-item routerLink="/games/sudoku" routerLinkActive="active" ariaCurrentWhenActive="page">Sudoku</a>
+  <a mat-menu-item routerLink="/games/placeholder" routerLinkActive="disabled" ariaCurrentWhenActive="page">Autres</a>
+</mat-menu>
