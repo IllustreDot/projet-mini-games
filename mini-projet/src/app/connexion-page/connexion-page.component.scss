@@ -30,15 +30,20 @@
                 width: 200px;
                 margin-left: 50px;
                 text-align: center;
-                background-color: $border-highlight;
                 border-radius: 25px;
                 border: 2px $highlight solid;
+                background-color: #848884;
+                opacity: 0.5;
+            }
 
+            .active-button {
+                opacity: 1;
+                background-color: $border-highlight;
                 &:hover {
                     background-color: $highlight;
                     border: 2px $border-highlight solid;
                     color: $background;
-                    text-decoration: underline;
+                    text-decoration: underlineConnexion;
                 }
             }
 
