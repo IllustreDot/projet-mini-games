@@ -19,9 +19,9 @@ La bibliothèque MatAngular devra être utilisée pour la mise en place des comp
 
 ### Template des pages
 
-- Sur toute les pages, on retrouvera une `navbar` qui sera composée d'un menu burger qui affichera la liste des jeux disponibles sur la plateforme (pour le moment seul le SUDOKU est cliquable le reste est désactivé)
+- ~~Sur toute les pages, on retrouvera une `navbar` qui sera composée d'un menu burger qui affichera la liste des jeux disponibles sur la plateforme (pour le moment seul le SUDOKU est cliquable le reste est désactivé)~~
 - ~~La `navbar` affichera aussi le pseudo du joueur connecté. Au clic sur le pseudo du joueur alors on est déconnecté.~~
-- On retrouvera un lien vers la page d'accueil et un autre lien vers la page des classements.
+- ~~On retrouvera un lien vers la page d'accueil et un autre lien vers la page des classements.~~
 
 ### Page d'accueil
 
