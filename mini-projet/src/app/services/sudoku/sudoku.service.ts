@@ -3,13 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SudokuService {
+  private apiUrl = '/sudoku';
 
-  private apiUrl = 'https://sudoku-game-and-api.netlify.app/api/sudoku';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSudokuData(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
