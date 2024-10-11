@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-connexion-page',
@@ -14,6 +15,7 @@ export class ConnexionPageComponent implements OnInit {
   login = new FormControl('');
   password = new FormControl('');
   formulaire = this.buttonUpdate();
+  @Output() connexionEvent = new EventEmitter<String>();
 
   constructor(private router: Router) {}
 
@@ -35,8 +37,7 @@ export class ConnexionPageComponent implements OnInit {
 
   connexionSub() : void {
     if(this.login.value == this.password.value && this.login.value != null) {
-      sessionStorage.setItem("user", this.login.value);
-      this.router.navigate(['/home']);
+      this.connexionEvent.emit(this.login.value);
     }
   }
 }

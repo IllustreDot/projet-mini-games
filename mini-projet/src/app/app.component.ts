@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { UserService } from './service/user.service';
+import { ConnexionPageComponent } from './components/connexion-page/connexion-page.component';
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,10 @@ import { MenuComponent } from './components/menu/menu.component';
 })
 export class AppComponent {
   title = 'mini-projet';
+  user!: User;
+  constructor(private router: Router,private userService: UserService) {}
 
-  constructor(private router: Router) {}
+
 
   ngOnInit() {
     if(typeof sessionStorage !== 'undefined') {
@@ -24,11 +27,13 @@ export class AppComponent {
   }
 
   onActivate(componentRef: any) {
-    if(componentRef instanceof HomeComponent) {
-      componentRef.logoutEvent.subscribe((info: String) => {
-        this.router.navigate(['/connexion']);
-        sessionStorage.removeItem('user');
-      });
-    }
+    if(componentRef instanceof ConnexionPageComponent){
+      componentRef.connexionEvent.subscribe((info: string) => {
+      if (this.userService.setUser(info)){
+        this.router.navigate(['/home']);
+      }
+    });
   }
 }
+}
+

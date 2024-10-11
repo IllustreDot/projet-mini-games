@@ -26,10 +26,10 @@ La bibliothèque MatAngular devra être utilisée pour la mise en place des comp
 ### Page d'accueil
 
 - ~~La page d'accueil affichera en titre la date du jour~~
-- On retrouvera la série du joueur courant sur les 7 derniers jours (un tick vert lorsque le joueur a joué, une croix rouge lorsque le joueur n'a pas réalisé de partie)
-  - la série sera issue de la propriété `streaks` d'un user
-  - si la propriété est vide on considère que le joueur n'a pas joué
-  - sinon la propriété streak sera composée des 7 derniers jours
+- ~~On retrouvera la série du joueur courant sur les 7 derniers jours (un tick vert lorsque le joueur a joué, une croix rouge lorsque le joueur n'a pas réalisé de partie)~~
+  - ~~la série sera issue de la propriété `streaks` d'un user~~
+  - ~~si la propriété est vide on considère que le joueur n'a pas joué~~
+  - ~~sinon la propriété streak sera composée des 7 derniers jours~~
 
 ### Page classement
 

@@ -8,8 +8,9 @@ export const routes: Routes = [
     {path: 'lost', component: LostComponent},
     {path: 'connexion', component: ConnexionPageComponent},
     {path:'home', component:HomeComponent},
-    { path: '**', redirectTo: 'lost'},
     {path: 'scoreboard', component: ScoreboardComponent},
     {path: 'games/sudoku', component: HomeComponent}, // to do
     {path : '', redirectTo: '/home', pathMatch: 'full'},
+    {path: '**', redirectTo: 'lost'},
+
 ];

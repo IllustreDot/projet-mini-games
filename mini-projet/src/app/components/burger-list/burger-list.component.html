@@ -1,6 +1,7 @@
 <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
+  <a mat-menu-item routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
   <a mat-menu-item routerLink="/scoreboard" routerLinkActive="active" ariaCurrentWhenActive="page">Scoreboard</a>
   <a mat-menu-item routerLink="/games/sudoku" routerLinkActive="active" ariaCurrentWhenActive="page">Sudoku</a>
-  <a mat-menu-item routerLink="/games/placeholder" routerLinkActive="disabled" ariaCurrentWhenActive="page">Autres</a>
+  <a mat-menu-item routerLink="/games/placeholder" [class.disabled]="isDisabled" routerLinkActive="active" ariaCurrentWhenActive="page">Autres</a>
 </mat-menu>
