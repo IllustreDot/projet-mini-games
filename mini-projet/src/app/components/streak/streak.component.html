@@ -13,26 +13,10 @@
             <th>Di</th>
         </tr>
         <tr>
-            <th>
-                ❌
-            </th>
-            <th>
-                ✅
-            </th>
-            <th>
-                ✅
-            </th>
-            <th>
-                ❌
-            </th>
-            <th>
-                ✅
-            </th>
-            <th>
-                ❌
-            </th>
-            <th>
-                ✅
+            
+            <th *ngFor="let day of user.streak">
+                <span *ngIf="day == 1">❌</span>
+                <span *ngIf="day == 0">✅</span>
             </th>
         </tr>
     </tbody>

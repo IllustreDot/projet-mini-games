@@ -13,4 +13,5 @@ import { MatMenuModule } from '@angular/material/menu'
   styleUrl: './burger-list.component.scss'
 })
 export class BurgerListComponent {
+  isDisabled = true;
 }
