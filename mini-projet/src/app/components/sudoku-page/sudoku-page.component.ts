@@ -23,7 +23,13 @@ export class SudokuPageComponent {
     firstValueFrom(this.sudokuService.getSudokuData())
       .then((data) => {
         this.grid = data.easy;
-        this.baseGrid = this.grid;
+        for (let i = 0; i < this.grid.length; i++) {
+          let row = [];
+          for (let j = 0; j < this.grid[i].length; j++) {
+            row.push(this.grid[i][j]);
+          }
+          this.baseGrid.push(row);
+        }
         console.log(this.grid);
       })
       .catch((err) => {
