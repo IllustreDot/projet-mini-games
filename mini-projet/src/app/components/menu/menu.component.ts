@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BurgerListComponent } from '../burger-list/burger-list.component';
 import { User } from '../../models/user.model';
-import { UserService } from '../../service/user.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({

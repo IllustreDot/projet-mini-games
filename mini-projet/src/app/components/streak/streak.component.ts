@@ -1,12 +1,13 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { UserService } from '../../service/user.service';
+import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-streak',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, CommonModule],
   templateUrl: './streak.component.html',
   styleUrl: './streak.component.scss',
 })

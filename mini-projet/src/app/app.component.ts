@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
-import { UserService } from './service/user.service';
+import { UserService } from './services/user.service';
 import { ConnexionPageComponent } from './components/connexion-page/connexion-page.component';
 import { User } from './models/user.model';
 
@@ -19,21 +19,9 @@ export class AppComponent {
 
 
   ngOnInit() {
-    if(typeof sessionStorage !== 'undefined') {
-      if (sessionStorage.getItem('user') == null) {
+      if(this.user == null) {
         this.router.navigate(['/connexion']);
       }
-    }
   }
-
-  onActivate(componentRef: any) {
-    if(componentRef instanceof ConnexionPageComponent){
-      componentRef.connexionEvent.subscribe((info: string) => {
-      if (this.userService.setUser(info)){
-        this.router.navigate(['/home']);
-      }
-    });
-  }
-}
 }
 
