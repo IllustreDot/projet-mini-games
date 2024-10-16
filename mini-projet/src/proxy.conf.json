@@ -1,0 +1,8 @@
+{
+  "/sudoku": {
+    "target": "https://sudoku-game-and-api.netlify.app/api/sudoku",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

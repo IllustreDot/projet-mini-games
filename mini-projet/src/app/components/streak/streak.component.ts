@@ -1,8 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-streak',
@@ -12,10 +12,10 @@ import { User } from '../../models/user.model';
   styleUrl: './streak.component.scss',
 })
 export class StreakComponent {
-  date : Date = new Date();
+  date: Date = new Date();
   user!: User;
   constructor(private userService: UserService) {
-    this.userService.user$.subscribe(user => {
+    this.userService.user$.subscribe((user) => {
       this.user = user!;
     });
   }

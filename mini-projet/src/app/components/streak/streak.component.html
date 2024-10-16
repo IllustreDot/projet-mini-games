@@ -3,22 +3,17 @@
     <p>Streak Joueur</p>
     <table>
         <tbody>
-        <tr>
-            <th>Lu</th>
-            <th>Ma</th>
-            <th>Me</th>
-            <th>Je</th>
-            <th>Ve</th>
-            <th>Sa</th>
-            <th>Di</th>
-        </tr>
-        <tr>
-            
-            <th *ngFor="let day of user.streak">
-                <span *ngIf="day == 1">❌</span>
-                <span *ngIf="day == 0">✅</span>
-            </th>
-        </tr>
-    </tbody>
+            <tr>
+                <th *ngFor="let elt of user.streaks">
+                    <span>{{ elt.day }}</span>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let elt of user.streaks">
+                    <span *ngIf="elt.isPlayed">✅</span>
+                    <span *ngIf="!elt.isPlayed">❌</span>
+                </th>
+            </tr>
+        </tbody>
     </table>
 </div>

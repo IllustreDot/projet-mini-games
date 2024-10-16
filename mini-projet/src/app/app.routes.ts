@@ -6,13 +6,11 @@ import { SudokuPageComponent } from './components/sudoku-page/sudoku-page.compon
 import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
 
 export const routes: Routes = [
-    {path: 'lost', component: LostComponent},
-    {path: 'connexion', component: ConnexionPageComponent},
-    {path:'home', component:HomeComponent},
-    { path: 'sudoku', component: SudokuPageComponent },
-    {path: 'scoreboard', component: ScoreboardComponent},
-    {path: 'games/sudoku', component: HomeComponent}, // to do
-    {path : '', redirectTo: '/home', pathMatch: 'full'},
-    {path: '**', redirectTo: 'lost'},
-
+  { path: 'lost', component: LostComponent },
+  { path: 'connexion', component: ConnexionPageComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'scoreboard', component: ScoreboardComponent },
+  { path: 'games/sudoku', component: SudokuPageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'lost' },
 ];
