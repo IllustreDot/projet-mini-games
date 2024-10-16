@@ -38,7 +38,6 @@ export class ConnexionPageComponent implements OnInit {
   connexionSub() : void {
     if(this.login.value == this.password.value && this.login.value != null) {
       this.connexionEvent.emit(this.login.value);
-      this.router.navigate(['/home']);
     }
   }
 }

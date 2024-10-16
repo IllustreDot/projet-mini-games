@@ -28,6 +28,7 @@ export class AppComponent {
   onActivate(componentRef: any) {
     if (componentRef instanceof ConnexionPageComponent) {
       componentRef.connexionEvent.subscribe((info: string) => {
+        console.log("string : ", info);
         if (this.userService.setUser(info)) {
           this.router.navigate(['/home']);
         }
