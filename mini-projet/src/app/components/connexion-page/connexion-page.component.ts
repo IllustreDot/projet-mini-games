@@ -3,7 +3,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-connexion-page',
@@ -16,8 +15,9 @@ export class ConnexionPageComponent implements OnInit {
   login = new FormControl('');
   password = new FormControl('');
   formulaire = this.buttonUpdate();
+  @Output() connexionEvent = new EventEmitter<String>();
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.login.valueChanges.subscribe(value => {
@@ -37,7 +37,7 @@ export class ConnexionPageComponent implements OnInit {
 
   connexionSub() : void {
     if(this.login.value == this.password.value && this.login.value != null) {
-      this.userService.setUser(this.login.value);
+      this.connexionEvent.emit(this.login.value);
       this.router.navigate(['/home']);
     }
   }
