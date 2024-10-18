@@ -20,6 +20,10 @@ export class AppComponent {
     this.userService.user$.subscribe((user) => {
       user = user;
     });
+    if(user == null && typeof sessionStorage !== 'undefined' && sessionStorage.getItem('user') != null) {
+      let username = sessionStorage.getItem('user') as string;
+      this.userService.setUser(username);
+    }
     if (user == null) {
       this.router.navigate(['/connexion']);
     }
