@@ -3,7 +3,8 @@
   <table>
     <tr *ngFor="let row of grid; let i = index">
       <td *ngFor="let cell of row; let j = index" (click)="clickCell(i, j)"
-        [ngClass]="{'highlighted': selected[0] === i && selected[1] === j}">
+        [ngClass]="{'highlighted': selected[0] === i && selected[1] === j,
+        'protected': this.isProtected(i,j)}">
         <p *ngIf="cell === 0; else number"></p>
         <ng-template #number>
           {{ cell }}

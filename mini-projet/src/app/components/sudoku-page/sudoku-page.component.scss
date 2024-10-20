@@ -5,7 +5,7 @@ table {
     margin: 20px auto;
     cursor: pointer;
 }
-  
+
 td {
     width: 80px;
     height: 80px;
@@ -42,6 +42,10 @@ td:last-child {
 
 .highlighted {
     outline: solid 5px red; /* Utiliser l'outline au lieu de la border */
+}
+
+.protected {
+  color: red;
 }
 
 #button-container {
