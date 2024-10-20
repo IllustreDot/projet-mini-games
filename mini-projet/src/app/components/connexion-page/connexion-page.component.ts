@@ -37,9 +37,9 @@ export class ConnexionPageComponent implements OnInit {
 
   connexionSub() : void {
     if(this.login.value == this.password.value && this.login.value != null) {
-      if (this.userService.setUser(this.login.value))
+      if (this.userService.setUser(this.login.value as string))
       {
-        this.router.navigate(['/home']);  
+        this.router.navigate(['/home']);
       }
     }
   }

@@ -32,10 +32,17 @@ export class UserService {
       }
     }
 
-    // If the user was not found, reset the user source and remove sessionStorage
-    this.userSource.next(null);
-    sessionStorage.removeItem('user');
-    return false;
+    const temporaryUser : User = {
+      id: 0,
+      login: user,
+      streak: 0,
+      streaks: []
+    };
+
+    // If the user was not found, create a temporary one
+    this.userSource.next(temporaryUser);
+    sessionStorage.setItem('user', user);
+    return true;
   }
 
   logout() {
