@@ -10,7 +10,7 @@ import { UserService } from '../../services/user/user.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './connexion-page.component.html',
-  styleUrl: './connexion-page.component.scss'
+  styleUrl: './connexion-page.component.scss',
 })
 export class ConnexionPageComponent implements OnInit {
   login = new FormControl('');
@@ -20,27 +20,25 @@ export class ConnexionPageComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
-    this.login.valueChanges.subscribe(value => {
+    this.login.valueChanges.subscribe((value) => {
       this.formulaire = this.buttonUpdate();
     });
-    this.password.valueChanges.subscribe(value => {
+    this.password.valueChanges.subscribe((value) => {
       this.formulaire = this.buttonUpdate();
     });
   }
 
-  buttonUpdate() : boolean {
-    if(this.login.value != '' && this.password.value != '') {
+  buttonUpdate(): boolean {
+    if (this.login.value != '' && this.password.value != '') {
       return true;
     }
     return false;
   }
 
-  connexionSub() : void {
-    if(this.login.value == this.password.value && this.login.value != null) {
-      if (this.userService.setUser(this.login.value as string))
-      {
-        this.router.navigate(['/home']);
-      }
+  connexionSub(): void {
+    if (this.login.value == this.password.value && this.login.value != null) {
+      this.userService.setUser(this.login.value as string);
+      this.router.navigate(['/home']);
     }
   }
 }

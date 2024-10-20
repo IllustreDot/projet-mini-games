@@ -2,8 +2,7 @@
 <div *ngIf="grid.length > 0; else noGrid" id="gridContainer">
   <table>
     <tr *ngFor="let row of grid; let i = index">
-      <td *ngFor="let cell of row; let j = index" (click)="clickCell(i, j)"
-        [ngClass]="{'highlighted': selected[0] === i && selected[1] === j,
+      <td *ngFor="let cell of row; let j = index" (click)="clickCell(i, j)" [ngClass]="{'highlighted': selected[0] === i && selected[1] === j,
         'protected': this.isProtected(i,j)}">
         <p *ngIf="cell === 0; else number"></p>
         <ng-template #number>
@@ -14,7 +13,10 @@
   </table>
 
   <div id="button-container">
-    <button>Valider grille</button>
+    <button (click)="submitSudoku()">Valider grille</button>
+  </div>
+  <div id="flex-container">
+    <p>{{ verif }}</p>
   </div>
 </div>
 <ng-template #noGrid>Aucune grille de sudoku n'a été reçu</ng-template>

@@ -17,14 +17,19 @@ export class AppComponent {
 
   ngOnInit() {
     let user: User | undefined;
-    this.userService.user$.subscribe((user) => {
-      user = user;
+    this.userService.user$.subscribe((userObs) => {
+      if (userObs != null) user = userObs;
+      console.log(userObs);
+      console.log(user);
     });
-    if(user == undefined && typeof sessionStorage !== 'undefined' && sessionStorage.getItem('user') != null) {
+    if (
+      user == undefined &&
+      typeof sessionStorage !== 'undefined' &&
+      sessionStorage.getItem('user') != null
+    ) {
       let username = sessionStorage.getItem('user') as string;
       this.userService.setUser(username);
-    }
-    if (user == undefined) {
+    } else if (user == undefined) {
       this.router.navigate(['/connexion']);
     }
   }

@@ -13,7 +13,11 @@ export class UserService {
   users!: User[];
 
   constructor(private router: Router) {
-    fetch('https://664ba07f35bbda10987d9f99.mockapi.io/api/users/')
+    this.callAPI();
+  }
+
+  async callAPI() {
+    return await fetch('https://664ba07f35bbda10987d9f99.mockapi.io/api/users/')
       .then((response) => response.json())
       .then((data) => {
         this.users = data; // Handle the data from the API
@@ -23,7 +27,10 @@ export class UserService {
       });
   }
 
-  setUser(user: string): boolean {
+  async setUser(user: string): Promise<boolean> {
+    if (this.users === undefined) {
+      await this.callAPI();
+    }
     for (let userInList of this.users) {
       if (user === userInList.login) {
         this.userSource.next(userInList);
@@ -32,11 +39,12 @@ export class UserService {
       }
     }
 
-    const temporaryUser : User = {
+    const temporaryUser: User = {
       id: 0,
       login: user,
+      points: 0,
       streak: 0,
-      streaks: []
+      streaks: [],
     };
 
     // If the user was not found, create a temporary one

@@ -1,47 +1,47 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
 table {
-    border-collapse: collapse;
-    margin: 20px auto;
-    cursor: pointer;
+  border-collapse: collapse;
+  margin: 20px auto;
+  cursor: pointer;
 }
 
 td {
-    width: 80px;
-    height: 80px;
-    text-align: center;
-    border: 1px solid #000;
-    font-size: 25px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 25px;
 }
 
 /* Bordures plus épaisses après chaque bloc de 3 lignes et 3 colonnes */
 tr:nth-child(3n) td {
-    border-bottom: 3px solid #000;
+  border-bottom: 3px solid #000;
 }
 
 td:nth-child(3n) {
-    border-right: 3px solid #000;
+  border-right: 3px solid #000;
 }
 
 /* Optionnel : bordures extérieures plus épaisses */
 tr:first-child td {
-    border-top: 3px solid #000;
+  border-top: 3px solid #000;
 }
 
 td:first-child {
-    border-left: 3px solid #000;
+  border-left: 3px solid #000;
 }
 
 tr:last-child td {
-    border-bottom: 3px solid #000;
+  border-bottom: 3px solid #000;
 }
 
 td:last-child {
-    border-right: 3px solid #000;
+  border-right: 3px solid #000;
 }
 
 .highlighted {
-    outline: solid 5px red; /* Utiliser l'outline au lieu de la border */
+  outline: solid 5px red; /* Utiliser l'outline au lieu de la border */
 }
 
 .protected {
@@ -49,18 +49,24 @@ td:last-child {
 }
 
 #button-container {
-    margin-top: 50px;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  margin-top: 50px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-    button {
-        background-color: $highlight;
-        color: black;
-        padding: 20px;
-        border-radius: 25px;
-        border: 2px solid $border-highlight;
-        font-family: 'Julia';
-    }
+  button {
+    background-color: $highlight;
+    color: black;
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid $border-highlight;
+    font-family: "Julia";
+  }
+}
+#flex-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

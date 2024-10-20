@@ -1,1 +1,11 @@
-<p>scoreboard works!</p>
+<app-menu></app-menu>
+
+<mat-list>
+    <mat-list-item class="border" *ngFor="let user of usersView">
+        <span class="black" mat-line>{{user.login}} | {{user.points}}</span>
+    </mat-list-item>
+
+    <mat-paginator [length]="users.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page"
+        (page)="handlePageEvent($event)">
+    </mat-paginator>
+</mat-list>

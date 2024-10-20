@@ -2,7 +2,7 @@
     <h2>{{ date | date: 'fullDate' }}</h2>
     <p>Streak Joueur</p>
     <table>
-        <tbody>
+        <tbody *ngIf="user">
             <tr>
                 <th *ngFor="let elt of user.streaks">
                     <span>{{ elt.day }}</span>

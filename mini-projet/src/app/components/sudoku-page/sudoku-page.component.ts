@@ -16,6 +16,8 @@ export class SudokuPageComponent {
   selected: number[] = [];
   selectIsProtected: boolean = true;
   baseGrid: number[][] = [];
+  solution: number[][] = [];
+  verif: number = 0;
 
   constructor(private sudokuService: SudokuService) {}
 
@@ -23,6 +25,7 @@ export class SudokuPageComponent {
     firstValueFrom(this.sudokuService.getSudokuData())
       .then((data) => {
         this.grid = data.easy;
+        this.solution = data.data;
         for (let i = 0; i < this.grid.length; i++) {
           let row = [];
           for (let j = 0; j < this.grid[i].length; j++) {
@@ -62,6 +65,32 @@ export class SudokuPageComponent {
       let row = this.selected[0];
       let col = this.selected[1];
       this.grid[row][col] = parseInt(key, 10);
+    }
+  }
+
+  checkSudoku(): boolean {
+    for (let i = 0; i < this.grid.length; i++) {
+      for (let j = 0; j < this.grid[i].length; j++) {
+        if (this.grid[i][j] !== this.solution[i][j]) {
+          console.log(this.grid[i][j], this.solution[i][j]);
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  submitSudoku() {
+    if (this.checkSudoku()) {
+      let login = sessionStorage.getItem('user');
+      firstValueFrom(
+        this.sudokuService.completeSudoku(Date.now(), login!, this.verif)
+      ).then((data) => {
+        console.log(data);
+      });
+    } else {
+      this.verif++;
+      alert('Il y a une erreur');
     }
   }
 }
